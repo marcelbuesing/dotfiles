@@ -12,6 +12,8 @@
 			    find-file-in-project 
 			    auto-complete 
 			    yasnippet
+			    haskell-mode
+			    flycheck-haskell
 			    expand-region))
 
 ;; No flyspell anymore (for now)

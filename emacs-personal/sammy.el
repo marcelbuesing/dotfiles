@@ -12,8 +12,6 @@
 			    find-file-in-project 
 			    auto-complete 
 			    yasnippet
-			    haskell-mode
-			    flycheck-haskell
 			    expand-region))
 
 ;; No flyspell anymore (for now)
@@ -27,6 +25,15 @@
 ;;;
 (require 'monokai-theme)
 (load-theme 'monokai t)
+
+;;;
+;;; Structured Haskell Mode
+;;;
+(add-to-list 'load-path "~/.emacs.d/structured-haskell-mode/elisp")
+(require 'shm)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+(setq shm-program-name "~/.emacs.d/structured-haskell-mode/dist/build/structured-haskell-mode/structured-haskell-mode")
+(setenv "PATH" (shell-command-to-string "echo $PATH"))
 
 ;;;
 ;;; Find file in project (.git)

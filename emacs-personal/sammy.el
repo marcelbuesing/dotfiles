@@ -5,12 +5,12 @@
 ;;; Code:
 
 ;; Ensure all the modules are available, excluding structured-haskell-mode.
-(prelude-require-packages '(paredit 
-			    cljsbuild-mode 
-			    monokai-theme 
+(prelude-require-packages '(paredit
+			    cljsbuild-mode
+			    sublime-themes
 			    multiple-cursors
-			    find-file-in-project 
-			    auto-complete 
+			    find-file-in-project
+			    auto-complete
 			    yasnippet
 			    expand-region))
 
@@ -23,8 +23,13 @@
 ;;;
 ;;; Use monokai theme
 ;;;
-(require 'monokai-theme)
-(load-theme 'monokai t)
+;;(require 'monokai-theme)
+;;(load-theme 'monokai t)
+
+(load-theme 'spolsky t)
+;; Configure SHM colors for solarized-dark
+;;(set-face-background 'shm-current-face "#073642") ; solarized-base02
+
 
 ;;;
 ;;; Structured Haskell Mode
@@ -72,8 +77,8 @@
 ;;;
 ;;; multiple-cursors
 ;;;
-(global-set-key (kbd "C-'") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-\"") 'mc/mark-all-like-this)
+(global-set-key (kbd "M-+") 'mc/mark-next-like-this)
+(global-set-key (kbd "M-#") 'mc/mark-all-like-this)
 
 ;;;
 ;;; Yasnippet
@@ -125,15 +130,15 @@ Symbols matching the text at point are put first in the completion list."
                              (cond
                               ((and (listp symbol) (imenu--subalist-p symbol))
                                (addsymbols symbol))
- 
+
                               ((listp symbol)
                                (setq name (car symbol))
                                (setq position (cdr symbol)))
- 
+
                               ((stringp symbol)
                                (setq name symbol)
                                (setq position (get-text-property 1 'org-imenu-marker symbol))))
- 
+
                              (unless (or (null position) (null name))
                                (add-to-list 'symbol-names name)
                                (add-to-list 'name-and-pos (cons name position))))))))
@@ -173,8 +178,8 @@ Symbols matching the text at point are put first in the completion list."
 ;;;
 ;;; dirtree
 ;;;
-(require 'dirtree)
-(global-set-key (kbd "C-x d") 'dirtree)
+;;(require 'dirtree)
+;;(global-set-key (kbd "C-x d") 'dirtree)
 
 ;;;
 ;;; coffee-mode

@@ -14,6 +14,9 @@
 			    yasnippet
 			    expand-region))
 
+;; Default Font
+(set-default-font "Anonymous Pro Bold 12")
+
 ;; No flyspell anymore (for now)
 (setq prelude-flyspell nil)
 

@@ -54,6 +54,11 @@
 (global-set-key (kbd "C-o") 'find-file-in-project)
 
 ;;;
+;;; Avoid other directory listing
+;;;
+(global-unset-key (kbd "C-x C-d"))
+
+;;;
 ;;; Switch buffer with C-tab
 ;;;
 (global-set-key (kbd "<C-tab>") 'next-buffer)

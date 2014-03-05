@@ -184,6 +184,20 @@ Symbols matching the text at point are put first in the completion list."
       (goto-char position))))
 (global-set-key (kbd "C-x f") 'ido-imenu)
 
+;;
+;; Duplicate line keybinding
+;;
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+)
+(global-set-key (kbd "<M-down>") 'duplicate-line)
+
 ;;;
 ;;; Pending delete mode
 ;;;

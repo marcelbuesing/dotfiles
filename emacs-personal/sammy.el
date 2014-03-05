@@ -34,9 +34,9 @@
 ;;; Use monokai theme
 ;;;
 ;;(require 'monokai-theme)
-;;(load-theme 'monokai t)
+(load-theme 'monokai t)
 
-(load-theme 'spolsky t)
+;;(load-theme 'spolsky t)
 ;; Configure SHM colors for solarized-dark
 ;;(set-face-background 'shm-current-face "#073642") ; solarized-base02
 

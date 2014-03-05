@@ -6,12 +6,14 @@
 
 ;; Ensure all the modules are available, excluding structured-haskell-mode.
 (prelude-require-packages '(paredit
+                            cider
 			    cljsbuild-mode
 			    sublime-themes
 			    multiple-cursors
 			    find-file-in-project
 			    auto-complete
 			    yasnippet
+			    flymake-coffee
 			    expand-region))
 
 ;; Default Font
@@ -23,6 +25,11 @@
 ;; No flycheck for SCSS
 (eval-after-load 'flycheck
   '(setq-default flycheck-disabled-checkers '(scss)))
+
+;;; Flycheck mode coffeescript
+(add-hook 'coffee-mode-hook 'flymake-coffee-load)
+
+
 ;;;
 ;;; Use monokai theme
 ;;;
@@ -42,6 +49,16 @@
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (setq shm-program-name "~/.emacs.d/structured-haskell-mode/dist/build/structured-haskell-mode/structured-haskell-mode")
 (setenv "PATH" (shell-command-to-string "echo $PATH"))
+
+;; Use Haskell-mode specific save
+(setq exec-path (append exec-path '("~/.cabal/bin")))
+
+;; Automatic formatting with stylish-haskell
+(setq haskell-stylish-on-save t)
+
+;; Use SHM highlighting, so disable global line highlighting.
+(eval-after-load 'structured-haskell-mode
+	'(global-hl-line-mode 0))
 
 ;;;
 ;;; Find file in project (.git)
@@ -182,6 +199,19 @@ Symbols matching the text at point are put first in the completion list."
 ;;; Paredit
 ;;;
 (add-hook 'clojure-mode-hook 'paredit-mode)
+
+;;;
+;;; Clojure mode
+;;;
+;; Prevent excessive indentation.
+(setq clojure-defun-style-default-indent t)
+
+;;;
+;;; Cider REPL
+;;;
+;; Enhance REPL with Paredit and rainbow delimiters
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
 ;;;
 ;;; dirtree

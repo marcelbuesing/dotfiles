@@ -9,6 +9,7 @@
                             cider
 			    cljsbuild-mode
 			    sublime-themes
+			    markdown-mode
 			    multiple-cursors
 			    find-file-in-project
 			    auto-complete

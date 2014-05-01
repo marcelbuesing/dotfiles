@@ -15,7 +15,8 @@
 			    auto-complete
 			    yasnippet
 			    flymake-coffee
-			    expand-region))
+			    expand-region
+                            auctex))
 
 ;; Default Font
 (set-default-font "Anonymous Pro Bold 12")

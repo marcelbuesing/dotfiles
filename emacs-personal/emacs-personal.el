@@ -36,7 +36,7 @@
 ;;; Use monokai theme
 ;;;
 ;;(require 'monokai-theme)
-(load-theme 'monokai t)
+(load-theme 'spolsky t)
 
 ;;(load-theme 'spolsky t)
 ;; Configure SHM colors for solarized-dark
@@ -60,7 +60,28 @@
 
 ;; Use SHM highlighting, so disable global line highlighting.
 (eval-after-load 'structured-haskell-mode
-	'(global-hl-line-mode 0))
+  '(global-hl-line-mode 0))
+
+;;;
+;;; Autocomplete Haskell
+;;;
+(require 'ac-haskell-process) ; if not installed via package.el
+(add-hook 'interactive-haskell-mode-hook 'ac-haskell-process-setup)
+(add-hook 'haskell-interactive-mode-hook 'ac-haskell-process-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'haskell-interactive-mode))
+
+(defun set-auto-complete-as-completion-at-point-function ()
+  (add-to-list 'completion-at-point-functions 'auto-complete))
+(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-to-list 'ac-modes 'haskell-interactive-mode)
+(add-hook 'haskell-interactive-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-hook 'haskell-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+(eval-after-load 'haskell-mode
+  '(define-key haskell-mode-map (kbd "C-c C-d") 'ac-haskell-process-popup-doc))
+(eval-after-load 'haskell-mode
+  '(define-key haskell-mode-map (kbd "C-h C-h") 'haskell-hoogle))
 
 ;;;
 ;;; Find file in project (.git)
@@ -242,6 +263,22 @@ Symbols matching the text at point are put first in the completion list."
 
 ;; Circumflex
 ;;(define-key key-translation-map [dead-circumflex] "^")
+
+;;;
+;;; LaTex
+;;;
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+
+(setq TeX-PDF-mode t)
 
 (provide 'sammy)
 ;;; sammy.el ends here

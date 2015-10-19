@@ -35,8 +35,11 @@ values."
      spell-checking
      syntax-checking
      version-control
+     ;; Personal
+     javascript
      haskell
      magit
+     ;; Custom
      mymain
      myhaskell
      )

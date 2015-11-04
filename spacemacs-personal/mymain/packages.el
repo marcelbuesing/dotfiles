@@ -3,6 +3,7 @@
     ;; package mymain go here
     multiple-cursors
     magit
+    restclient
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
@@ -22,4 +23,7 @@ which require an initialization must be listed explicitly in the list.")
 
 (defun mymain/init-magit()
   (global-magit-file-mode)
+  )
+
+(defun mymain/init-restclient()
   )

@@ -379,3 +379,7 @@ settings = {
   core = { real_name = "-"; user_name = "somewone"; nick = "somewone"; };
   "fe-text" = { actlist_sort = "refnum"; };
 };
+ignores = ( {
+    level = "JOINS PARTS QUITS"; 
+    network = "your chatnet name"; 
+} )

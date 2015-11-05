@@ -17,3 +17,6 @@
   (yank)
   )
 (global-set-key (kbd "<M-down>") 'duplicate-line)
+
+;;; Whitespace
+(global-whitespace-mode 1)

@@ -1,6 +1,7 @@
 (defvar mymain-packages
   '(
     ;; package mymain go here
+    golden-ratio
     multiple-cursors
     magit
     restclient
@@ -13,6 +14,10 @@ which require an initialization must be listed explicitly in the list.")
 
 ;; For each package, define a function mymain/init-<package-mymain>
 ;;
+(defun mymain/init-golden-ratio()
+  (golden-ratio-mode 1)
+)
+
 (defun mymain/init-multiple-cursors()
   ;;;
   ;;; multiple-cursors

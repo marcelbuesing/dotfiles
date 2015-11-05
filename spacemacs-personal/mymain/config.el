@@ -20,3 +20,7 @@
 
 ;;; Whitespace
 (global-whitespace-mode 1)
+
+;; Jump between buffers
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))

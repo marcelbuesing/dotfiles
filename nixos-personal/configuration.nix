@@ -49,6 +49,8 @@
     zsh
   ];
 
+  programs.zsh.enable = true;
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -77,6 +79,8 @@
     home = "/home/marcel/";
     createHome = true;
   };
+
+  users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";

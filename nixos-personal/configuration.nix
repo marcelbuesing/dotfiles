@@ -40,11 +40,14 @@
     ffmpeg
     ghc
     git
+    irssi
     keepassx2
     nodejs
     numix-icon-theme
     numix-icon-theme-circle
     skype
+    steam
+    teamspeak_client
     vlc
     wget
     zsh

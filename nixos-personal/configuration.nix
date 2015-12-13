@@ -43,13 +43,14 @@
     keepassx2
     nodejs
     numix-icon-theme
+    numix-icon-theme-circle
     skype
     vlc
     wget
     zsh
   ];
-
-  programs.zsh.enable = true;
+  
+  programs.zsh.enable = true;  
 
   # List services that you want to enable:
 
@@ -78,9 +79,10 @@
     uid = 1000;
     home = "/home/marcel/";
     createHome = true;
+    extraGroups = ["wheel"];
   };
-
-  users.defaultUserShell = "/run/current-system/sw/bin/zsh";
+  
+  users.defaultUserShell = "/run/current-system/sw/bin/zsh";  
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";

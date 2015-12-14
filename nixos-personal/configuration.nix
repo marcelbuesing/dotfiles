@@ -1,4 +1,5 @@
 # Edit this configuration file to define what should be installed on
+
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -8,6 +9,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      #./npm-package.nix
     ];
 
   # Use the gummiboot efi boot loader.
@@ -34,18 +36,26 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    cabal2nix
+    cabal-install
     chromium
     dropbox
     emacs
+    emacs24Packages.structuredHaskellMode
     ffmpeg
+    firefox-wrapper
+    gcc
     ghc
     git
     irssi
     keepassx2
+    npm2nix
     nodejs
     numix-icon-theme
     numix-icon-theme-circle
     skype
+    spotify
+    stack
     steam
     teamspeak_client
     vlc

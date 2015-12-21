@@ -53,6 +53,8 @@
     nodejs
     numix-icon-theme
     numix-icon-theme-circle
+    postgresql
+    python
     skype
     spotify
     stack
@@ -84,7 +86,12 @@
   
   services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.gnome3.enable = true;  
+  services.xserver.desktopManager.gnome3.enable = true;
+
+  # postgres
+  services.postgresql.enable = true;
+  services.postgresql.package = pkgs.postgresql;
+  services.postgresql.authentication = "local all all ident";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.marcel = {

@@ -9,6 +9,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./scientific.nix
       #./npm-package.nix
     ];
 
@@ -47,8 +48,10 @@
     gcc
     ghc
     git
+    gnumake
     irssi
     keepassx2
+    nix-repl
     npm2nix
     nodejs
     numix-icon-theme
@@ -62,7 +65,10 @@
     teamspeak_client
     vlc
     wget
+    zlib # required for postgresql
     zsh
+    nodePackages.bower
+    nodePackages.gulp
   ];
   
   programs.zsh.enable = true;  

@@ -49,8 +49,16 @@ plugins=(git)
 
 # User configuration
 
-#export PATH="/home/marcel/bin:/home/marcel/.gem/ruby/2.1.0/bin:/home/marcel/.cabal/bin:/usr/#local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/#site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-# export MANPATH="/usr/local/man:$MANPATH"
+path+=('/home/marcel/.cabal/bin')
+# export PATH="/home/marcel/.cabal/bin"
+# export MANPATH="/usr/local/man:$manpathzs"
+
+# Locate NPM in home path
+NPM_PACKAGES="$HOME/.npm-packages"
+path+=('$NPM_PACKAGES/bin')
+#MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+# Tell Node about these packages
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,3 +86,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias nixpkgs="nix-env -qa \* -P | fgrep -i"
+alias pfennigclient="cd 
+~/haskell/pfennig-client/.stack-work/install/x86_64-linux/lts-3.10/ghcjs-0.2.0.20151029_ghc-7.10.2/bin/pfennig-client-output.jsexe/"
+# git
+alias gco="git checkout"

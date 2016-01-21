@@ -10,7 +10,9 @@
         collection-latexrecommended
         collection-latexextra
         latexmk
-        tcolorbox;
+        lato
+        tcolorbox
+        mathdesign;
     })
   ];
 }

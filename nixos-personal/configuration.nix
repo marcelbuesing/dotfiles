@@ -20,7 +20,7 @@
 
   # required for nvidia driver
   nixpkgs.config.allowUnfree = true;
-  
+
   networking.hostName = "marcel-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -47,9 +47,13 @@
     firefox-wrapper
     gcc
     ghc
+    ghostscript
+    gimp
     git
     gnumake
+    google-fonts
     irssi
+    jdk
     keepassx2
     nix-repl
     npm2nix
@@ -58,22 +62,38 @@
     numix-icon-theme-circle
     postgresql
     python
+    scribus
     skype
     spotify
     stack
     steam
     teamspeak_client
     vlc
+    which
     wget
     zlib # required for postgresql
     zsh
     nodePackages.bower
     nodePackages.gulp
   ];
-  
-  programs.zsh.enable = true;  
+
+  programs.zsh.enable = true;
+
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      corefonts  # Micrsoft free fonts
+      inconsolata  # monospaced
+      ubuntu_font_family  # Ubuntu fonts
+      unifont # some international languages
+    ];
+  };
 
   # List services that you want to enable:
+
+  # Locate
+  services.locate.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -89,7 +109,7 @@
   # Enable the KDE Desktop Environment.
   # services.xserver.displayManager.kdm.enable = true;
   # services.xserver.desktopManager.kde4.enable = true;
-  
+
   services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
@@ -107,8 +127,8 @@
     createHome = true;
     extraGroups = ["wheel"];
   };
-  
-  users.defaultUserShell = "/run/current-system/sw/bin/zsh";  
+
+  users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";

@@ -121,6 +121,7 @@ channels = (
   { name = "#oftc"; chatnet = "OFTC"; autojoin = "No"; },
   { name = "silc"; chatnet = "SILC"; autojoin = "No"; },
   { name = "#haskell"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#reflex-frp"; chatnet = "Freenode"; autojoin = "yes"; }
 );
 
 aliases = {

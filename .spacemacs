@@ -37,11 +37,12 @@ values."
      version-control
      ;; Personal
      javascript
-     haskell
+     (haskell :variables haskell-enable-shm-support t)
+     latex
      magit
      ;; Custom
      mymain
-     myhaskell
+     ;;myhaskell
      ;; Typescript
      typescript
      )
@@ -201,6 +202,7 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
+  (add-hook 'after-init-hook 'global-company-mode)
   )
 
 (defun dotspacemacs/user-config ()

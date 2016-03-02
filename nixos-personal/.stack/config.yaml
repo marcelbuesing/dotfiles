@@ -1,0 +1,8 @@
+# This file contains default non-project-specific settings for 'stack', used
+# in all projects.  For more information about stack's configuration, see
+# https://github.com/commercialhaskell/stack/blob/release/doc/yaml_configuration.md
+#
+extra-include-dirs:
+- /nix/store/b305mbis40fmrnnizsfbccq9idk82aia-zlib-1.2.8/include
+extra-lib-dirs:
+- /nix/store/b305mbis40fmrnnizsfbccq9idk82aia-zlib-1.2.8/lib

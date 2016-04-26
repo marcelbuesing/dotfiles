@@ -13,10 +13,10 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/home" =
-  { device = "/dev/disk/by-uuid/92285ddb-c1d4-4099-a892-f97208b41647";
-    fsType = "btrfs";
-  };
-    
+    { device = "/dev/disk/by-uuid/92285ddb-c1d4-4099-a892-f97208b41647";
+      fsType = "btrfs";
+    };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/cb0c9c4d-70de-4d40-a048-065b80b388f7";
       fsType = "btrfs";
@@ -30,4 +30,8 @@
   swapDevices = [ ];
 
   nix.maxJobs = 8;
+
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
 }

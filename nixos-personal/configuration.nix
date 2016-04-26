@@ -17,11 +17,14 @@
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.device = "/dev/sda";
+  boot.tmpOnTmpfs = true;
+  boot.devSize = "10%";
 
   # required for nvidia driver
   nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "marcel-desktop"; # Define your hostname.
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ]; # Google DNS
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Select internationalisation properties.
@@ -45,33 +48,49 @@
     emacs24Packages.structuredHaskellMode
     ffmpeg
     firefox-wrapper
+    freeglut
     gcc
+    gcc_multi
     ghc
     ghostscript
+    glmark2
     gimp
     git
     gnumake
     google-fonts
+    hexchat
     irssi
+    inkscape
     jdk
     keepassx2
+    libpqxx
+    mesa
+    mesa_glu
+    mplayer
     nix-repl
     npm2nix
     nodejs
     numix-icon-theme
     numix-icon-theme-circle
+    paper-gtk-theme
     postgresql
     python
+    ruby
     scribus
     skype
     spotify
     stack
     steam
+    smplayer
     teamspeak_client
+    tmux
+    unrar
     vlc
+    wireshark
     which
     wget
     zlib # required for postgresql
+    zlibStatic
     zsh
     nodePackages.bower
     nodePackages.gulp
@@ -133,4 +152,7 @@
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
 
+  # Firewall
+  networking.firewall.allowedTCPPorts = [8080];
+  networking.firewall.allowedUDPPorts  = [10000]; # RTP IPTV
 }

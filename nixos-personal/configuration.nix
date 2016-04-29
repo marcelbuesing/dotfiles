@@ -17,14 +17,14 @@
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.device = "/dev/sda";
-  boot.tmpOnTmpfs = true;
-  boot.devSize = "10%";
 
   # required for nvidia driver
   nixpkgs.config.allowUnfree = true;
+  # Netflix
+  nixpkgs.config.chromium.enableWideVine = true;
 
   networking.hostName = "marcel-desktop"; # Define your hostname.
-  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ]; # Google DNS
+  # networking.nameservers = [ "8.8.8.8" "8.8.4.4" ]; # Google DNS
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Select internationalisation properties.

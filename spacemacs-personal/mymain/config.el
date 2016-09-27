@@ -21,6 +21,9 @@
 ;;; Whitespace
 (global-whitespace-mode 1)
 
+;;; Max line length
+(setq whitespace-line-column 120)
+
 ;; Jump between buffers
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))

@@ -2,7 +2,7 @@ servers = (
   { address = "irc.dal.net"; chatnet = "DALnet"; port = "6667"; },
   { address = "irc.efnet.org"; chatnet = "EFNet"; port = "6667"; },
   { address = "irc.esper.net"; chatnet = "EsperNet"; port = "6667"; },
-  { 
+  {
     address = "irc.freenode.net";
     chatnet = "Freenode";
     port = "6697";
@@ -35,6 +35,14 @@ servers = (
     address = "irc.undernet.org";
     chatnet = "Undernet";
     port = "6667";
+  },
+  {
+    address = "irc.mozilla.org";
+    chatnet = "Mozilla";
+    port = "6667";
+    use_tls = "no";
+    tls_verify = "no";
+    autoconnect = "yes";
   }
 );
 
@@ -108,6 +116,7 @@ chatnets = {
     max_msgs = "1";
     max_whois = "1";
   };
+  Mozilla = { type = "IRC"; };
 };
 
 channels = (
@@ -120,8 +129,9 @@ channels = (
   { name = "#netfuze"; chatnet = "NetFuze"; autojoin = "No"; },
   { name = "#oftc"; chatnet = "OFTC"; autojoin = "No"; },
   { name = "silc"; chatnet = "SILC"; autojoin = "No"; },
-  { name = "#haskell"; chatnet = "Freenode"; autojoin = "yes"; }
-  { name = "#reflex-frp"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#haskell"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#reflex-frp"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#rust"; chatnet = "Mozilla"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -380,7 +390,6 @@ settings = {
   core = { real_name = "-"; user_name = "somewone"; nick = "somewone"; };
   "fe-text" = { actlist_sort = "refnum"; };
 };
-ignores = ( {
-    level = "JOINS PARTS QUITS"; 
-    network = "your chatnet name"; 
-} )
+ignores = (
+  { level = "JOINS PARTS QUITS"; network = "your chatnet name"; }
+);

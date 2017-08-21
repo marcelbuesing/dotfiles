@@ -18,6 +18,11 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     html
+     go
+     yaml
+     ;;haskell
+     scala
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -32,20 +37,27 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     spell-checking
+     ;;spell-checking
      syntax-checking
      version-control
      ;; Personal
      javascript
-     (haskell :variables haskell-enable-shm-support t)
+     ;;(haskell :variables haskell-enable-shm-support t)
      latex
-     magit
+     ;;magit
      ;; Custom
      mymain
      ;;myhaskell
      ;; Typescript
+     ;; scala
      typescript
+     purescript
      rust
+     shell
+     intero
+     java
+     docker
+     react
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -89,13 +101,17 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-configuration-layers '()
+   dotspacemacs-themes '(solarized-dark
+                         ample
+                         molokai
+                         spacemacs-dark
                          spacemacs-light
                          solarized-light
-                         solarized-dark
                          leuven
                          monokai
                          zenburn)
+   ;; dotspacemacs-auto-resume-layouts t
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -203,7 +219,15 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
-  (add-hook 'after-init-hook 'global-company-mode)
+  ;;  (add-hook 'after-init-hook 'global-company-mode)
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'gofmt-before-save)
+              (setq-default)
+              (setq tab-width 2)
+              (setq standard-indent 2)
+              (setq indent-tabs-mode nil)))
+  (setq rust-format-on-save t)
   )
 
 (defun dotspacemacs/user-config ()

@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/marcel/.oh-my-zsh
+export GOPATH=/home/marcel/go
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -56,9 +57,18 @@ path+=('/home/marcel/.cabal/bin')
 # Locate NPM in home path
 NPM_PACKAGES="$HOME/.npm-packages"
 path+=('$NPM_PACKAGES/bin')
+path+=('/home/marcel/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin')
+path+=('$(ruby -e 'print Gem.user_dir')/bin')
+path+=('/home/marcel/haskell-setup/haskell-on-arm/bin')
+path+=('/home/marcel/go/bin')
+path+=('/home/marcel/.cargo/bin')
+
 #MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 # Tell Node about these packages
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+ANDROID_HOME="/home/marcel/Android/Sdk/"
+RUST_SRC_PATH="/home/marcel/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+GOPATH="/home/marcel/go"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,3 +101,6 @@ alias pfennigclient="cd
 ~/haskell/pfennig-client/.stack-work/install/x86_64-linux/lts-3.10/ghcjs-0.2.0.20151029_ghc-7.10.2/bin/pfennig-client-output.jsexe/"
 # git
 alias gco="git checkout"
+
+# added by travis gem
+[ -f /home/marcel/.travis/travis.sh ] && source /home/marcel/.travis/travis.sh

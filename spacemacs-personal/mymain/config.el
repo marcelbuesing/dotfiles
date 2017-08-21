@@ -3,6 +3,7 @@
 ;;;
 (global-set-key (kbd "<C-tab>") 'next-buffer)
 (global-set-key (kbd "<C-S-iso-lefttab>") 'previous-buffer)
+(global-set-key (kbd "<M-SPC>") 'avy-goto-char)
 
 ;;
 ;; Duplicate line keybinding

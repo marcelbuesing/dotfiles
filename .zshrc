@@ -46,7 +46,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(ssh-agent)
 
 # User configuration
 
@@ -57,19 +57,28 @@ path+=('/home/marcel/.cabal/bin')
 # Locate NPM in home path
 NPM_PACKAGES="$HOME/.npm-packages"
 path+=('$NPM_PACKAGES/bin')
-path+=('/home/marcel/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin')
 path+=('$(ruby -e 'print Gem.user_dir')/bin')
 path+=('/home/marcel/haskell-setup/haskell-on-arm/bin')
 path+=('/home/marcel/go/bin')
 path+=('/home/marcel/.cargo/bin')
+path+=('/home/marcel/.cabal/bin')
+path+=('/home/marcel/.local/bin')
+path+=('./yarn/bin')
+path+=('~/.platformio/penv/bin')
+path+=('~/.jx/bin')
+path+=('$HOME/bin')
+path+=('$HOME/.gem')
+path+=('/home/marcel/.gem/ruby/2.6.0/bin')
+
 
 #MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 # Tell Node about these packages
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 ANDROID_HOME="/home/marcel/Android/Sdk/"
 RUST_SRC_PATH="/home/marcel/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+RUSTC_WRAPPER=sccache
 GOPATH="/home/marcel/go"
-
+ESPIDF="/opt/esp-idf-sdk"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -88,6 +97,10 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# sway
+export XKB_DEFAULT_LAYOUT=de
+# export XKB_DEFAULT_VARIANT=nodeadkeys
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -97,10 +110,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias nixpkgs="nix-env -qa \* -P | fgrep -i"
-alias pfennigclient="cd 
-~/haskell/pfennig-client/.stack-work/install/x86_64-linux/lts-3.10/ghcjs-0.2.0.20151029_ghc-7.10.2/bin/pfennig-client-output.jsexe/"
 # git
 alias gco="git checkout"
-
+alias ls=exa
+alias cat=bat
+alias find=fd
+alias c=cargo
 # added by travis gem
 [ -f /home/marcel/.travis/travis.sh ] && source /home/marcel/.travis/travis.sh
+#source $HOME/.nvm/nvm.sh
